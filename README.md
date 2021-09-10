@@ -12,7 +12,7 @@
 * coverage\lcov-report\index.html: HTML report about test results in details
 
 ## Instructions to run and check the test
-1. Open terminal console and make sure you are in the root path of the project, and run the command below to install any possible dependencies.
+1. Open terminal console and make sure you are in the root path of the project, and run the command below to install dependencies.
    - npm i
 2. Run the tests by executing "npm test" command.
 3. Pay attention console output while test runs. 

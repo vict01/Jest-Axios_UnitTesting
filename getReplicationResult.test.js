@@ -1,7 +1,7 @@
 const {
   ApiClient,
   REPLICATION_STATUSES,
-  maxNumberOfReplicationRetries,
+  maxNumberOfReplicationRetries
 } = require("./getReplicationResult.js");
 const axios = require("axios");
 const replicationHandlerId = "1";
@@ -19,16 +19,13 @@ describe("Happy path and positive testing", () => {
   test("Method should contain data when replicationResponse status is initialized", async () => {
     const data = { message: "Expected Message" };
     axios.get.mockResolvedValueOnce({
-      status: REPLICATION_STATUSES.initialized,
       data,
+      status: REPLICATION_STATUSES.initialized
     });
     expect(
-      await apiClient._getReplicationResult(
-        replicationHandlerId,
-        endPoint,
-        axios
-      )
-    ).toBe(data);
+      await apiClient
+      ._getReplicationResult(replicationHandlerId, endPoint, axios))
+      .toBe(data);
   });
 });
 
@@ -65,8 +62,8 @@ describe("Exception handling and negative testing", () => {
   test("Method should handle exception when replicationResponse status is failed", async () => {
     const data = { message: "Expected Message" };
     axios.get.mockResolvedValueOnce({
-      status: REPLICATION_STATUSES.failed,
       data,
+      status: REPLICATION_STATUSES.failed
     });
     await apiClient
       ._getReplicationResult(replicationHandlerId, endPoint, axios)
